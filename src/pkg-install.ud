@@ -60,7 +60,7 @@
 
     (para-verbatim example
 "make
-make-tests")
+make tests")
 
     (para "The first " (item command "make") " command compiles the
     object code itself. The second command runs the test suite - any
