@@ -1,0 +1,78 @@
+(section
+  (title "install")
+
+  ; usage section
+
+  (section
+    (title "usage")
+    (para
+      "On installation, binaries, source files, libraries and
+       headers are installed into various locations. The locations
+       can be customised by editing single-line configuration files.
+       The defaults are as follows:")
+    (para
+      (table install_config
+        (t-row
+          (item "default path")
+          (item "configuration file")
+          (item "description"))
+        (t-row
+          (item file_name "/usr/local/share/coreland/stack-ada-repos")
+          (item file_name "conf-repos")
+          (item "Source code repository."))
+        (t-row
+          (item file_name "/usr/local/lib/coreland/stack-ada-static")
+          (item file_name "conf-slibdir")
+          (item "Static library directory."))
+        (t-row
+          (item file_name "/usr/local/lib/coreland/stack-ada")
+          (item file_name "conf-dlibdir")
+          (item "Dynamic library directory."))
+        (t-row
+          (item file_name "/usr/local/include/coreland/stack-ada")
+          (item file_name "conf-incdir")
+          (item "Header file directory."))
+        (t-row
+          (item file_name "/usr/local/bin")
+          (item file_name "conf-bindir")
+          (item "Executable directory.")))))
+
+  ; compilation requirements
+
+  (section
+    (title "requirements")
+
+    (para "The package requires an Ada 2005" (footnote
+      (link-ext "http://adaic.org/standards/05rm/html/RM-TTL.html"))
+      " compatible compiler to compile.")
+
+    (para "The package requires a C90" (footnote (link-ext
+    "http://www.open-std.org/jtc1/sc22/wg14/")) " compiler and a POSIX"
+    (footnote (link-ext "http://www.opengroup.org/")) " environment to
+      compile. The package is expected to be usable in a non-POSIX
+      environment, but is not currently tested extensively in one."))
+
+  ; compilation instructions
+
+  (section
+    (title "compilation")
+    (para "The package is compiled with the following commands: ")
+
+    (para-verbatim example
+"make
+make-tests")
+
+    (para "The first " (item command "make") " command compiles the
+    object code itself. The second command runs the test suite - any
+    errors here signal incorrect package behaviour.")
+
+    (para "To install:")
+
+    (para-verbatim example
+"make install
+make install-check")
+
+    (para "The first " (item command "make") " command installs all
+    relevant files. The second command checks that all files were
+    installed correctly."))
+)

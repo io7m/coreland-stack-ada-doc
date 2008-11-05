@@ -1,0 +1,39 @@
+(section
+  (title "legal")
+
+  (para
+    "Some projects, such as the OpenBSD"
+    (footnote (link-ext "http://openbsd.org")) " project
+    require strict guidelines to be followed in order to allow the
+    software to be included in their package system.")
+
+  (para "From " (link-ext "http://openbsd.org/policy.html") ":")
+
+  (para quote
+    "While material that is truly entered into the \"Public Domain\" can be
+    included in OpenBSD, review is required on a case by case basis.
+    Frequently the \"public domain\" assertion is made by someone who does not
+    really hold all rights under Copyright law to grant that status or there
+    are a variety of conditions imposed on use. For a work to be truly in
+    the \"public domain\" all rights are abandoned and the material is offered
+    without restrictions.")
+
+  (para 
+    "This page is intended to assist such projects in their review by
+    listing the origins of each file in the distribution.")
+
+  (para
+    "Every file in the " (item file_name "SYSDEPS") " subdirectory
+    is an original implementation taken from an internally developed
+    package by the name of " (item package "sysdeps"
+    (footnote (link-ext "/code/sysdeps"))) ". This package
+    and all files within this directory are in the public domain, in
+    entirety.")
+
+  (para
+    "Every file in the " (item file_name "UNIT_TESTS") " subdirectory
+    is an original implementation for the library and is in the public
+    domain.")
+
+  (para
+    "All other source and header files were written from scratch."))

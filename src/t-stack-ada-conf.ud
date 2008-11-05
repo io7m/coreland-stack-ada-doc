@@ -1,0 +1,53 @@
+(section
+  (ref "stack-ada-conf")
+  (title "stack-ada-conf")
+
+  (section
+    (title "synopsis")
+    (para-verbatim
+"stack-ada-conf: [help] ops ..."))
+
+  (section
+    (title "description")
+    (para "The " (item command "stack-ada-conf") " program prints information
+     needed to compile and/or link against the library itself."))
+
+  (section
+    (title "options")
+    (para "The following options are available:")
+    (para
+      (table options
+        (t-row
+          (item "help")
+          (item "Print help message."))
+        (t-row
+          (item "compile")
+          (item "Modify output to be used as options for the compiler (see "
+            (link "conf_example" "example") ")."))
+        (t-row
+          (item "incdir")
+          (item "Print location of Ada header files."))
+        (t-row
+          (item "cflags")
+          (item "Print Ada compiler flags necessary for compilation (possibly none)."))
+        (t-row
+          (item "dlibdir")
+          (item "Print location of dynamic libraries."))
+        (t-row
+          (item "slibdir")
+          (item "Print location of static libraries."))
+        (t-row
+          (item "ldflags")
+          (item "Print Ada linker flags necessary for compilation"))
+        (t-row
+          (item "version")
+          (item "Print installed version of library."))
+        (t-row
+          (item "newline")
+          (item "Append newline to output.")))))
+
+  (section
+    (title "example")
+    (ref "conf_example")
+    (include "t-stack-ada_exp.ud"))
+)

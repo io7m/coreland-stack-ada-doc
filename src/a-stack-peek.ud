@@ -1,0 +1,30 @@
+(section
+  (ref "stack_peek")
+  (title "stack.peek")
+  (para funtion_desc "Peek at element on stack.")
+  (subsection
+    (title "synopsis")
+    (para-verbatim function_synopsis
+"with stack;
+
+procedure peek
+  (stack   : stack_t;
+   process : not null access procedure (element : element_type));
+
+procedure peek
+  (stack   : stack_t;
+   element : out element_type);
+"))
+  (subsection
+    (title "description")
+    (para
+      "The first form of the " (item function "peek") " procedure passes
+      the item on the top of the stack referenced by " (item function_param
+      "stack") " to " (item function_param "process") ".")
+    (para
+      "The second form of the " (item function "peek") " procedure returns
+      the item on the top of the stack referenced by " (item function_param
+      "stack") " in " (item function_param "element") ".")
+    (para
+      "The procedure raises " (item exception "constraint_error") " when
+      called on an empty stack.")))

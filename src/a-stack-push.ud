@@ -1,0 +1,22 @@
+(section
+  (ref "stack_push")
+  (title "stack.push")
+  (para funtion_desc "Push element to stack.")
+  (subsection
+    (title "synopsis")
+    (para-verbatim function_synopsis
+"with stack;
+
+procedure push
+  (stack   : in out stack_t;
+   element : element_type);
+"))
+  (subsection
+    (title "description")
+    (para
+      "The " (item function "push") " procedure pushes the item referenced
+      by " (item function_param "element") " to the stack referenced by "
+      (item function_param "stack") ".")
+    (para
+      "The procedure raises " (item exception "storage_error") " if memory
+       cannot be allocated.")))

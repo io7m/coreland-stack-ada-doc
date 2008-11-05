@@ -1,0 +1,8 @@
+(section
+  (title "package information")
+  (contents)
+  (include "pkg-orient.ud")
+  (include "pkg-install.ud")
+  (include "pkg-support.ud")
+  (include "pkg-legal.ud")
+  (include "pkg-license.ud"))

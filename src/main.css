@@ -1,0 +1,94 @@
+/* generic classes */
+body {
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+  color: #000;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+a { }
+a:link    { color: #555;}
+a:visited { color: #333;}
+a:hover   { color: #666;}
+a:active  { color: #555;}
+
+hr {
+  height: 1px;
+  border: 0;
+  color: #ccc;
+  background-color: #ccc;
+}
+
+.docid {
+  color: #999;
+  font-family: monospace;
+}
+
+.ud_navbar_foot { margin-top: 1em; }
+.ud_navbar_head { }
+.ud_toc { }
+.ud_footnotes { border-top: 1px solid #ddd; padding-top: 1em; }
+.ud_footnote_tab { }
+
+.command,
+.constant,
+.exception,
+.file_name,
+.file_suffix,
+.function,
+.function_param,
+.package,
+.struct,
+.struct_field,
+.tag_name,
+.variable
+{
+  font-family: monospace;
+}
+
+table.options { }
+table.options td { vertical-align: top; padding: 0.5em; }
+
+table.install_config { }
+table.install_config td {
+  vertical-align: top;
+  padding-right: 3em;
+}
+
+table.escape_table { }
+table.escape_table td {
+  vertical-align: top;
+  padding-right: 3em;
+}
+
+table.package_deps { }
+table.package_deps td {
+  vertical-align: top;
+  padding-right: 3em;
+}
+
+table.supported { }
+table.supported td {
+  vertical-align: top;
+  padding-right: 3em;
+}
+
+table.comparison { }
+table.comparison td {
+  vertical-align: top;
+  padding-right: 3em;
+}
+
+.example {
+  border: 1px solid #ddd;
+  padding: 1em;
+}
+
+.quote,
+.source,
+.tag_synopsis
+{
+  border: 1px solid #ddd;
+  padding: 1em;
+  font-family: monospace;
+}

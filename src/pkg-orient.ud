@@ -1,0 +1,10 @@
+(section
+  (title "orientation")
+
+  (section
+    (title "overview")
+
+    (para "This package provides a simple dynamic stack based on the
+      Ada 2005 vector container package."))
+
+) ; end of section

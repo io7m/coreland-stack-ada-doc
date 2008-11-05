@@ -1,0 +1,18 @@
+(style "main")
+(encoding "utf-8")
+(render-header "header")
+(render-footer "footer")
+
+(include "m_title.ud")
+
+(para (include "m_docid.ud"))
+(para (include "m_pubdate.ud"))
+
+(para abstract
+  "documentation for " (include "m_pkg.ud"))
+
+(contents)
+
+(include "pkg.ud")
+(include "a-stack.ud")
+(include "tools.ud")

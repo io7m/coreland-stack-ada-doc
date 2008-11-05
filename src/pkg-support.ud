@@ -1,0 +1,15 @@
+(section
+  (title "supported systems")
+
+  (section
+    (title "supported systems list")
+    (para
+      "This software is known to compile and pass all tests on the following
+      systems.")
+    (include "m_supp.ud"))
+
+  (section
+    (title "platform specific issues")
+    (para
+      "This section documents known issues on specific platforms.")
+    (include "m_p_issue.ud")))

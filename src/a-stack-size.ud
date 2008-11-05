@@ -1,0 +1,17 @@
+(section
+  (ref "stack_size")
+  (title "stack.size")
+  (para funtion_desc "Get size of stack.")
+  (subsection
+    (title "synopsis")
+    (para-verbatim function_synopsis
+"with stack;
+
+function size
+  (stack : stack_t) return natural;
+"))
+  (subsection
+    (title "description")
+    (para
+      "The " (item function "size") " function returns the number of elements in
+      the stack referenced by " (item function_param "stack") ".")))

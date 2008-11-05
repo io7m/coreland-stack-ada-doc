@@ -1,0 +1,24 @@
+(section
+  (ref "stack")
+  (title "stack API reference")
+  (contents)
+
+  (subsection
+    (title "description")
+
+    (para "The package is implemented as a generic with the following formal
+      parameters:")
+    (para-verbatim package_synopsis
+"type element_type is private;")
+
+    (para "The package provides the following types:")
+    (para-verbatim package_types
+"type stack_t is private;"))
+
+  (include "a-stack-push.ud")
+  (include "a-stack-pop.ud")
+  (include "a-stack-pop_discard.ud")
+  (include "a-stack-peek.ud")
+  (include "a-stack-clear.ud")
+  (include "a-stack-size.ud")
+)

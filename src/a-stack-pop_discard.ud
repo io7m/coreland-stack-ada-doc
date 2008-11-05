@@ -1,0 +1,21 @@
+(section
+  (ref "stack_pop_discard")
+  (title "stack.pop_discard")
+  (para funtion_desc "Pop element from stack and discard.")
+  (subsection
+    (title "synopsis")
+    (para-verbatim function_synopsis
+"with stack;
+
+procedure pop_discard
+  (stack : in out stack_t);
+"))
+  (subsection
+    (title "description")
+    (para
+      "The " (item function "pop_discard") " procedure pops the item on the stop
+      of the stack referenced by " (item function_param "stack") " and discards
+      it.")
+    (para
+      "The procedure raises " (item exception "constraint_error") " when
+      called on an empty stack.")))
