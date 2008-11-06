@@ -1,19 +1,19 @@
-all: pdf ps dvi html-split html-single css plain nroff
+all: html-split html-single css pdf dvi ps txt nroff
 
-name = stack-ada
-
-pdf: release/$(name).pdf
-ps: release/$(name).ps
-dvi: release/$(name).dvi
-html-split: release/0.html
-html-single: release/$(name).html
-css: release/main.css
-plain: release/$(name).txt
-nroff: release/$(name).nrf
+html-split: build/_html-split.done
+html-single: build/_html-single.done
+css: build/_css.done
+pdf: build/_pdf.done
+dvi: build/_dvi.done
+ps: build/_ps.done
+txt: build/_txt.done
+nroff: build/_nroff.done
 meta: release/meta
 
-generated_sources = src/m_docid.ud src/m_docid.txt src/m_pkg.ud src/m_supp.ud \
-	src/m_title.ud src/m_title.txt
+generated_sources = \
+src/m_docid.ud src/m_docid.txt \
+src/m_pkg.ud   src/m_supp.ud \
+src/m_title.ud src/m_title.txt
 
 #----------------------------------------------------------------------
 # meta
@@ -33,43 +33,48 @@ src/m_title.ud: src/m_title_ud.sh src/m_title.txt
 
 #----------------------------------------------------------------------
 
-build/0.tex: src/main.ud $(generated_sources)
-	(cd src && udoc-render -s 1 -r context main.ud ../build)
-
-build/$(name).dvi: build/0.tex $(generated_sources)
-	(cd build && texexec 0.tex && mv 0.dvi $(name).dvi)
-release/$(name).dvi: build/$(name).dvi
-	cp build/$(name).dvi release/$(name).dvi
-
-build/$(name).pdf: build/0.tex
-	(cd build && texexec --pdf 0.tex && mv 0.pdf $(name).pdf)
-release/$(name).pdf: build/$(name).pdf
-	cp build/$(name).pdf release/$(name).pdf
-
-build/$(name).ps: build/$(name).pdf
-	(cd build && pdf2ps $(name).pdf $(name).ps)
-release/$(name).ps: build/$(name).ps
-	cp build/$(name).ps release/$(name).ps
-
-release/$(name).html: src/main.ud $(generated_sources)
-	(cd src && udoc-render -s 0 -r xhtml main.ud ../build)
-	cp build/0.html release/$(name).html
-
-release/0.html: src/main.ud $(generated_sources)
+build/_html-split.done: src/m_docid.txt src/main.ud $(generated_sources)
 	(cd src && udoc-render -s 2 -r xhtml main.ud ../build)
 	cp build/*.html release
+	touch build/_html-split.done
 
-release/main.css: src/main.css
+build/_html-single.done: src/m_docid.txt src/main.ud $(generated_sources)
+	(cd src && udoc-render -s 0 -r xhtml main.ud ../build)
+	cp build/0.html release/`cat src/m_docid.txt`.html
+	touch build/_html-single.done
+
+build/_css.done: src/main.css
 	cp src/main.css build
 	cp build/main.css release
+	touch build/_css.done
 
-release/$(name).txt: src/main.ud $(generated_sources)
+build/_txt.done: src/m_docid.txt src/main.ud $(generated_sources)
 	(cd src && udoc-render -r plain main.ud ../build)
-	cp build/0.txt release/$(name).txt
+	cp build/0.txt release/`cat src/m_docid.txt`.txt
+	touch build/_txt.done
 
-release/$(name).nrf: src/main.ud $(generated_sources)
+build/_nroff.done: src/m_docid.txt src/main.ud $(generated_sources)
 	(cd src && udoc-render -r nroff main.ud ../build)
-	cp build/0.nrf release/$(name).nrf
+	cp build/0.nrf release/`cat src/m_docid.txt`.nrf
+	touch build/_nroff.done
+
+build/0.tex: src/m_docid.txt src/main.ud $(generated_sources)
+	(cd src && udoc-render -s 3 -r context main.ud ../build)
+
+build/_dvi.done: src/m_docid.txt src/main.ud build/0.tex $(generated_sources)
+	(cd build && texexec --dvi 0.tex)
+	cp build/0.dvi release/`cat src/m_docid.txt`.dvi
+	touch build/_dvi.done
+
+build/_pdf.done: src/m_docid.txt src/main.ud build/0.tex $(generated_sources)
+	(cd build && texexec --pdf 0.tex)
+	cp build/0.pdf release/`cat src/m_docid.txt`.pdf
+	touch build/_pdf.done
+
+build/_ps.done: src/m_docid.txt src/main.ud build/0.pdf $(generated_sources)
+	(cd build && pdf2ps 0.pdf)
+	cp build/0.ps release/`cat src/m_docid.txt`.ps
+	touch build/_ps.done
 
 release/meta: src/m_docid.txt src/m_title.txt src/m_pkg.txt
 	mkdir release/meta
@@ -78,13 +83,11 @@ release/meta: src/m_docid.txt src/m_title.txt src/m_pkg.txt
 	cp src/m_pkg.txt release/meta/package
 	date -u "+%Y-%m-%d %H:%M:%S %z" > release/meta/pubdate
 
-image-data:
-	cp src/*.png build
-	cp build/*.png release
-
-package:
+package: meta
 	cp LICENSE release
 	ln -s release `cat src/m_docid.txt`
+	ln -s 0.html release/index.html
+	chmod ugo+r release/*
 	tar -c -H -f - `cat src/m_docid.txt` | gzip -9 > `cat src/m_docid.txt`.tar.gz
 	md5 `cat src/m_docid.txt`.tar.gz > `cat src/m_docid.txt`.tar.gz.md5
 	sha256 `cat src/m_docid.txt`.tar.gz > `cat src/m_docid.txt`.tar.gz.sha256
