@@ -1,7 +1,7 @@
 (section
   (ref "stack_peek")
   (title "stack.peek")
-  (para funtion_desc "Peek at element on stack.")
+  (para function_desc "Peek at element on stack.")
   (subsection
     (title "synopsis")
     (para-verbatim function_synopsis

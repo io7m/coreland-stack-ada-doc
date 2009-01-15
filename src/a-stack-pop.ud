@@ -1,7 +1,7 @@
 (section
   (ref "stack_pop")
   (title "stack.pop")
-  (para funtion_desc "Pop element from stack.")
+  (para function_desc "Pop element from stack.")
   (subsection
     (title "synopsis")
     (para-verbatim function_synopsis

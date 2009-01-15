@@ -1,7 +1,7 @@
 (section
   (ref "stack_push")
   (title "stack.push")
-  (para funtion_desc "Push element to stack.")
+  (para function_desc "Push element to stack.")
   (subsection
     (title "synopsis")
     (para-verbatim function_synopsis

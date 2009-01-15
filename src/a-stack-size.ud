@@ -1,7 +1,7 @@
 (section
   (ref "stack_size")
   (title "stack.size")
-  (para funtion_desc "Get size of stack.")
+  (para function_desc "Get size of stack.")
   (subsection
     (title "synopsis")
     (para-verbatim function_synopsis

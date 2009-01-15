@@ -1,7 +1,7 @@
 (section
   (ref "stack_clear")
   (title "stack.clear")
-  (para funtion_desc "Clear elements in stack.")
+  (para function_desc "Clear elements in stack.")
   (subsection
     (title "synopsis")
     (para-verbatim function_synopsis

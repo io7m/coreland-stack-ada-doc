@@ -1,3 +1,4 @@
 darwin 8.11.0 gcc 4.2.0 ppc gnat_fsf 4.2.0
 freebsd 6.3-release-p5 gcc 4.2.2 x86 gnat_fsf 4.2.2
 linux 2.6.26-1-686 gcc 4.3.2 x86 gnat_fsf 4.3.2
+openbsd 4.3 gcc 4.2.0 x86 gnat_fsf 4.2.0

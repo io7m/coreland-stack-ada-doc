@@ -1,7 +1,7 @@
 (section
   (ref "stack_pop_discard")
   (title "stack.pop_discard")
-  (para funtion_desc "Pop element from stack and discard.")
+  (para function_desc "Pop element from stack and discard.")
   (subsection
     (title "synopsis")
     (para-verbatim function_synopsis
