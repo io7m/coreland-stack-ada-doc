@@ -1,4 +1,5 @@
 /* generic classes */
+
 body {
   font-family: Geneva, Arial, Helvetica, sans-serif;
   color: #000;
@@ -30,6 +31,10 @@ hr {
 .ud_footnotes { border-top: 1px solid #ddd; padding-top: 1em; }
 .ud_footnote_tab { }
 
+.ada_package,
+.ada_exception,
+.ada_type,
+.ada_enum_element,
 .command,
 .constant,
 .exception,
@@ -37,6 +42,7 @@ hr {
 .file_suffix,
 .function,
 .function_param,
+.function_synopsis,
 .package,
 .struct,
 .struct_field,
@@ -86,6 +92,8 @@ table.comparison td {
 
 .quote,
 .source,
+.function_synopsis,
+.ada_type_synopsis,
 .tag_synopsis
 {
   border: 1px solid #ddd;
